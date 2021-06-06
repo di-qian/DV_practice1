@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import GetCSV from './GetCSV';
-import BarChart from './BarChart';
+// import BarChart from './BarChart';
+// import ScatterChart from './ScatterChart/ScatterChart';
+import LineChart from './LineChart';
 
 const width = 960;
 const height = 500;
@@ -22,7 +24,9 @@ function App() {
 
   return (
     <>
-      <BarChart />
+      <LineChart />
+      {/* <ScatterChart /> */}
+      {/* <BarChart /> */}
       {/* <svg width={width} height={height} onMouseMove={handleMousemove}>
         <circle
           cx={mousePosition.x}

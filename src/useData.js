@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { csv } from 'd3';
+import { json } from 'd3';
 
-const csvUrl =
-  'https://gist.githubusercontent.com/curran/0ac4077c7fc6390f5dd33bf5c06cb5ff/raw/605c54080c7a93a417a3cea93fd52e7550e76500/UN_Population_2019.csv';
+const jsonUrl = 'https://unpkg.com/world-atlas@2.0.2/countries-50m.json';
 
 export const useData = () => {
   const [data, setData] = useState(null);
+  console.log(data);
 
   useEffect(() => {
-    const row = (d) => {
-      d.Population = +d['2020'] * 1000;
-      return d;
-    };
-    csv(csvUrl, row).then((data) => {
-      setData(data.slice(0, 10));
-    });
+    json(jsonUrl).then(setData);
   }, []);
 
   return data;
