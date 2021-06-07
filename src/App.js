@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import GetCSV from './GetCSV';
 // import BarChart from './BarChart';
 // import ScatterChart from './ScatterChart/ScatterChart';
-import LineChart from './LineChart';
+// import LineChart from './LineChart';
+//import GeospatialChart from './GeospatialChart/GeospatialChart';
+//import MenusWReact from './MenusWReact/MenusWReact';
+import ScatterChart from './ScatterChartWMenu/ScatterChart';
 
 const width = 960;
 const height = 500;
@@ -24,8 +27,10 @@ function App() {
 
   return (
     <>
-      <LineChart />
-      {/* <ScatterChart /> */}
+      {/* <MenusWReact /> */}
+      {/* <GeospatialChart /> */}
+      {/* <LineChart /> */}
+      <ScatterChart />
       {/* <BarChart /> */}
       {/* <svg width={width} height={height} onMouseMove={handleMousemove}>
         <circle
