@@ -28,16 +28,17 @@ pre {
 
 .tick text {
   fill: #635f5d;
+  cursor: default;
 }
 
 .mark {
   fill: #137b80;
 }
 
-.axis-label {
+/* .axis-label {
   font-size: 2.5em;
   fill: #635f5d;
-}
+} */
 
 .marks circle {
   fill: #137b80;
@@ -71,4 +72,34 @@ pre {
 .geomarks .graticules {
   fill: none;
   stroke: #dadada;
+}
+
+.Dropdown-root {
+  font-size: 1.5em;
+  width: 300px;
+  display: inline-block;
+}
+
+.axis-label,
+.dropdown-label {
+  font-size: 2.5em;
+  fill: #635f5d;
+  color: #635f5d;
+}
+
+.menus-container {
+  margin-top: 20px;
+  margin-right: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-label {
+  margin-left: 100px;
+  margin-right: 15px;
+}
+
+.Dropdown-menu {
+  max-height: 400px;
 }

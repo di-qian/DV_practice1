@@ -6,7 +6,9 @@ import GetCSV from './GetCSV';
 // import LineChart from './LineChart';
 //import GeospatialChart from './GeospatialChart/GeospatialChart';
 //import MenusWReact from './MenusWReact/MenusWReact';
-import ScatterChart from './ScatterChartWMenu/ScatterChart';
+//import ScatterChart from './ScatterChartWMenu/ScatterChart';
+//import ScatterChart from './ScatterChartWMenuPolished/ScatterChart';
+import ScatterChart from './ScatterChartColor/ScatterChart';
 
 const width = 960;
 const height = 500;

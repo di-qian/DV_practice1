@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { csv, scaleLinear, scaleTime, max, timeFormat, extent } from 'd3';
 import { useData } from './useData';
-import { AxisBottom } from './AxisBottom';
+import { AxisBottom } from './LineChart/AxisBottom';
 import { AxisLeft } from './AxisLeft';
 import { Marks } from './Marks';
 
