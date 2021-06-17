@@ -41,7 +41,8 @@ const csvUrl =
   'https://gist.githubusercontent.com/di-qian/1e8d816753b3f374c25069193407f5a8/raw/764b2733d2fabc341cba37d5fae54751352c9587/mdcountycovidvac.csv';
 
 const row = (d) => {
-  d.fullyvaccinated = +d['FullyVaccinatedCumulative'];
+  d['FullyVaccinatedCumulative'] = +d['FullyVaccinatedCumulative'];
+  d['VACCINATION_DATE'] = new Date(d['VACCINATION_DATE']);
   return d;
 };
 

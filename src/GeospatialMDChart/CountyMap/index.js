@@ -8,10 +8,11 @@ export const CountyMap = ({ data, covidData, rowByCounty, onHoveredValue }) => {
   const [hoveredValue, setHoveredValue] = useState(null);
   const colorValue = (d) => +d.FullyVaccinatedCumulative;
 
-  const colorScale = scaleSequential(interpolateYlGn).domain([
-    0,
-    max(covidData, colorValue),
-  ]);
+  const colorScale = useMemo(
+    () =>
+      scaleSequential(interpolateYlGn).domain([0, max(covidData, colorValue)]),
+    [covidData, colorValue]
+  );
 
   useEffect(() => {
     onHoveredValue(hoveredValue);

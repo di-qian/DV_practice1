@@ -14,13 +14,12 @@ const dateHistogramSize = 0.25;
 
 const selectedDate = '05/10/2021 10:00:00 AM';
 
-const xValue = (d) => d['VACCINATION_DATE'];
-
 const GeospatialChart = () => {
   const data = useGeoData();
   const covidData = useCovidData();
   const [hoveredValue, setHoveredValue] = useState(null);
   const [mousePosition, setMousePosition] = useState(null);
+
   const [brushExtent, setBrushExtent] = useState();
 
   const handleMouseMove = useCallback(
@@ -94,13 +93,15 @@ const GeospatialChart = () => {
       <h3 className="dateText">
         Date: {getDate(selectedDate)} to {getDate(selectedDate)}
       </h3>
-      {/* <TimeChart
+
+      <TimeChart
         data={covidData}
         width={width}
         height={dateHistogramSize * height}
-        // setBrushExtent={setBrushExtent}
-        xValue={xValue}
-      /> */}
+        //xValue={xValue}
+        //setBrushExtent={setBrushExtent}
+      />
+
       {hoveredValue ? (
         <ToolTip
           hoveredValue={hoveredValue}
