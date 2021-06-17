@@ -22,56 +22,49 @@ pre {
   font-size: 7em;
 }
 
-.tick line {
-  stroke: #c0c0bb;
-}
-
 .tick text {
   fill: #635f5d;
   cursor: default;
+  font-size: 0.8em;
 }
 
 .mark {
   fill: #137b80;
 }
 
-/* .axis-label {
-  font-size: 2.5em;
-  fill: #635f5d;
-} */
-
 .marks circle {
   fill: #137b80;
 }
 
 .marks path {
-  stroke: #137b80;
+  stroke: #90d1d4;
   stroke-width: 5;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
 
 .geomarks path {
-  fill: #137b80;
+  /* fill: #b68c64; */
   stroke: #c0c0bb;
 }
 
 .geomarks .land {
-  fill: #137b80;
+  fill: #ececec;
 }
 
 .geomarks .sphere {
-  fill: #ececec;
+  fill: #fbfbfb;
 }
 
 .geomarks .interiors {
   fill: none;
-  stroke: #339498;
+  stroke: #d9dfe0;
 }
 
-.geomarks .graticules {
+.geomarks .graticules,
+.tick line {
   fill: none;
-  stroke: #dadada;
+  stroke: #ececec;
 }
 
 .Dropdown-root {
@@ -82,7 +75,7 @@ pre {
 
 .axis-label,
 .dropdown-label {
-  font-size: 2.5em;
+  font-size: 1em;
   fill: #635f5d;
   color: #635f5d;
 }
@@ -102,4 +95,40 @@ pre {
 
 .Dropdown-menu {
   max-height: 400px;
+}
+
+circle {
+  fill: #137b80;
+  opacity: 0.3;
+}
+
+.headerText {
+  position: absolute;
+  top: 0px;
+  left: 30px;
+}
+
+.dateText {
+  position: absolute;
+  top: 40px;
+  left: 30px;
+}
+
+.mapbg {
+  position: relative;
+  background-color: #f8f5f5;
+  stroke: #222220;
+}
+
+.Tooltip {
+  border: 1px solid #757575;
+  box-shadow: none;
+  display: table;
+  position: absolute;
+  padding: 8px;
+  text-align: left;
+  font-size: 12px;
+  background: #f5f5f5;
+  pointer-events: none;
+  white-space: nowrap;
 }

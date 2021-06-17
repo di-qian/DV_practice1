@@ -6,8 +6,8 @@ import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
 import { Marks } from './Marks';
 
-const width = 960;
-const height = 500;
+const width = 200;
+const height = 120;
 const margin = { top: 20, right: 30, bottom: 65, left: 220 };
 const xAxisLabelOffset = 50;
 
