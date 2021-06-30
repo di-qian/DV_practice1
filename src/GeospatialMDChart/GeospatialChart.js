@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import { CountyMap } from './CountyMap';
 import TimeChart from './HistogramChart/TimeChart';
@@ -11,7 +11,7 @@ import { ToolTip } from './ToolTip';
 const width = 1100;
 const height = 700;
 const dateHistogramSize = 0.25;
-
+const xValue = (d) => d['VACCINATION_DATE'];
 const selectedDate = '05/10/2021 10:00:00 AM';
 
 const GeospatialChart = () => {
@@ -50,25 +50,20 @@ const GeospatialChart = () => {
     return <pre>Loading...</pre>;
   }
 
-  const filteredData = covidData.filter(
-    (d) => getDate(d.VACCINATION_DATE) === getDate(selectedDate)
-  );
+  // const filteredData = covidData.filter(
+  //   (d) => getDate(d.VACCINATION_DATE) === getDate(selectedDate)
+  // );
 
-  // const filteredData = brushExtent
-  //   ? covidData.filter((d) => {
-  //       const date = xValue(d);
-  //       console.log(date);
-  //       return date > brushExtent[0] && date < brushExtent[1];
-  //     })
-  //   : covidData;
+  const filteredData = brushExtent
+    ? covidData.filter((d) => {
+        const date = xValue(d);
 
-  // const filteredData = covidData.filter((d) => {
-  //   const date = xValue(d);
-  //   console.log(date);
-  //   return date > brushExtent[0] && date < brushExtent[1];
-  // });
+        return date > brushExtent[0] && date < brushExtent[1];
+      })
+    : covidData;
 
   const rowByCounty = new Map();
+
   filteredData.forEach((d) => {
     rowByCounty.set(d.County, d);
   });
@@ -98,8 +93,8 @@ const GeospatialChart = () => {
         data={covidData}
         width={width}
         height={dateHistogramSize * height}
-        //xValue={xValue}
-        //setBrushExtent={setBrushExtent}
+        xValue={xValue}
+        setBrushExtent={setBrushExtent}
       />
 
       {hoveredValue ? (

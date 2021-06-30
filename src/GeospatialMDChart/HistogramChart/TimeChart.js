@@ -12,7 +12,7 @@ import {
   brushX,
   select,
 } from 'd3';
-import { useData } from './useData';
+//import { useData } from './useData';
 import { AxisBottom } from './AxisBottom';
 import { AxisLeft } from './AxisLeft';
 import { Marks } from './Marks';
@@ -21,14 +21,9 @@ const margin = { top: 10, right: 0, bottom: 65, left: 100 };
 const xAxisLabelOffset = 45;
 const yAxisLabelOffset = 75;
 
-const TimeChart = ({ data, width, height }) => {
-  //const data = useData();
+const TimeChart = ({ data, width, height, setBrushExtent, xValue }) => {
+  const brushRef = useRef();
 
-  // if (!data) {
-  //   return <pre>Loading...</pre>;
-  // }
-  //const brushRef = useRef();
-  const xValue = (d) => d['VACCINATION_DATE'];
   const xAxisLabel = 'Date';
 
   const innerHeight = height - margin.top - margin.bottom;
@@ -66,16 +61,16 @@ const TimeChart = ({ data, width, height }) => {
     [binnedData, innerHeight]
   );
 
-  // useEffect(() => {
-  //   const brush = brushX().extent([
-  //     [0, 0],
-  //     [innerWidth, innerHeight],
-  //   ]);
-  //   brush(select(brushRef.current));
-  //   brush.on('brush end', (event) => {
-  //     setBrushExtent(event.selection && event.selection.map(xScale.invert));
-  //   });
-  // }, [innerWidth, innerHeight]);
+  useEffect(() => {
+    const brush = brushX().extent([
+      [0, 0],
+      [innerWidth, innerHeight],
+    ]);
+    brush(select(brushRef.current));
+    brush.on('brush end', (event) => {
+      setBrushExtent(event.selection && event.selection.map(xScale.invert));
+    });
+  }, [innerWidth, innerHeight]);
 
   return (
     <svg width={width} height={height}>
@@ -114,7 +109,7 @@ const TimeChart = ({ data, width, height }) => {
           innerHeight={innerHeight}
         />
       </g>
-      {/* <g ref={brushRef} /> */}
+      <g ref={brushRef} />
     </svg>
   );
 };
